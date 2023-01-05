@@ -16,7 +16,6 @@ services:
     ports:
       - "30303:30303"
       - "30303:30303/udp"
-      - "8545:8545"
   ethminer:
     build: monitored-geth-client
     restart: always
@@ -35,11 +34,7 @@ services:
     container_name: netstats
     environment:
       - WS_SECRET=eth-net-stats-secret
-    ports:
-      - "3000:3000"
   addons:
     build: addons
     restart: on-failure
     container_name: addons
-    ports:
-      - "80:80"
